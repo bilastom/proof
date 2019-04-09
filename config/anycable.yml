@@ -1,0 +1,3 @@
+# config/anycable.yml
+production:
+  access_logs_disabled: false
