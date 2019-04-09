@@ -44,6 +44,13 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    anycable (0.6.3)
+      anyway_config (~> 1.4.2)
+      grpc (~> 1.17)
+    anycable-rails (0.6.3)
+      anycable (~> 0.6.0)
+      rails (>= 5)
+    anyway_config (1.4.4)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -79,6 +86,12 @@ GEM
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    google-protobuf (3.7.1)
+    googleapis-common-protos-types (1.0.4)
+      google-protobuf (~> 3.0)
+    grpc (1.19.0)
+      google-protobuf (~> 3.1)
+      googleapis-common-protos-types (~> 1.0.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -139,6 +152,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.0)
     regexp_parser (1.4.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
@@ -194,6 +208,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anycable-rails
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -203,6 +218,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  redis (>= 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
