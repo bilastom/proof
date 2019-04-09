@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'anycable-rails'
 
 gem "redis", ">= 4.0"
-
+gem 'haml'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
