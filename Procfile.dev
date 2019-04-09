@@ -1,0 +1,2 @@
+web: ADAPTER=any_cable CABLE_URL='ws://localhost:3334/cable' bundle exec rails s -b 0.0.0.0 -p 3000
+rpc: ADAPTER=any_cable bundle exec anycable --server-command="anycable-go --port 3334"
