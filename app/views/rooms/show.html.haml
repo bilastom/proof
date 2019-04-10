@@ -1,1 +1,13 @@
 %h3 show
+
+%div#message-form
+  %input#message{type: 'text'}
+  %button.submitBtn
+    Add
+%div#messages-count
+  = Message.count
+
+%ul.messages
+  - @messages.each do |message|
+    %li
+      = message.content
