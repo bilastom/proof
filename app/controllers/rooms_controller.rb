@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
 
   def show
     @messages = @room.messages.order('id DESC')
+    @users = @room.attendees.map(&:user)
   end
 
   def new

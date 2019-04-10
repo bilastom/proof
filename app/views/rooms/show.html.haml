@@ -5,13 +5,27 @@
   = link_to 'back', rooms_path
 
 %div#message-form
-  %input#message{type: 'text', data: {room_id: @room.id}}
+  %input#message{type: 'text'}
   %button.submitBtn
     Add
-%div#messages-count
-  = Message.count
-
+%ul#attendees
+  - @users.each do |user|
+    - userId = "user_#{user.id}"
+    %li{id: userId }
+      = user.email
 %ul.messages
   - @messages.each do |message|
     %li
       = message.content
+
+:javascript
+  $(document).ready(function() {
+    var roomId = $('body').data('room-id')
+    App.Channels.Room.subscribe(roomId)
+    $('#message-form .submitBtn').click(function(event) {
+      var inputMessage = $('#message')
+      var value = inputMessage.val()
+      inputMessage.val('')
+      App.room.speak({ value: value })
+    })
+  })
