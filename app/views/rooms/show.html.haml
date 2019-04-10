@@ -1,7 +1,11 @@
-%h3 show
+%h3
+  = "Room #{@room.name}"
+
+%p
+  = link_to 'back', rooms_path
 
 %div#message-form
-  %input#message{type: 'text'}
+  %input#message{type: 'text', data: {room_id: @room.id}}
   %button.submitBtn
     Add
 %div#messages-count

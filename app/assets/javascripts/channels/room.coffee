@@ -1,13 +1,17 @@
-App.room = App.cable.subscriptions.create "RoomChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+window.App.Channels ||= {}
+window.App.Channels.Room ||= {}
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+App.Channels.Room.subscribe = (roomId) ->
+  App.room = App.cable.subscriptions.create { channel: 'RoomChannel', room_id: roomId },
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-  received: (data) ->
-    $('ul.messages').prepend('<li>' + data.message + '</li>')
-    $('#messages-count').html(data.count)
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
 
-  speak: (message) ->
-    @perform 'speak', message: message
+    received: (data) ->
+      $('ul.messages').prepend('<li>' + data.message + '</li>')
+      $('#messages-count').html(data.count)
+
+    speak: (message) ->
+      @perform 'speak', { message: message.value }

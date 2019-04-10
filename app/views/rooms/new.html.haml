@@ -1,0 +1,10 @@
+%h3= 'New room'
+
+= form_for @room do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.submit
+
+= link_to 'back', rooms_path

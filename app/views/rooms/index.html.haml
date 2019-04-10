@@ -1,1 +1,11 @@
-Index
+%h3
+  Rooms
+
+= link_to 'create new room', new_room_path
+
+%p
+  list:
+%ul
+- @rooms.each do |room|
+  %li
+    = link_to room.name, room_path(room)
