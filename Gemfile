@@ -16,6 +16,7 @@ gem 'anycable-rails'
 
 gem "redis", ">= 4.0"
 gem 'haml'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
